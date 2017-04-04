@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import * as MarkdownIt from 'markdown-it';
+
+import { MarkdownService } from '../markdown.service';
 
 @Component({
   selector: 'app-markup-preview',
@@ -6,10 +9,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./markup-preview.component.scss']
 })
 export class MarkupPreviewComponent implements OnInit {
-
-  constructor() { }
+  previewMarkup: any;
+  constructor(private mdService: MarkdownService) { }
 
   ngOnInit() {
-  }
+    const md = new MarkdownIt();
 
+    this.mdService.markdownText.subscribe((text) => {
+      this.previewMarkup = md.render(text);
+    });
+  }
 }

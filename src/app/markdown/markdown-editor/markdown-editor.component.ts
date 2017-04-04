@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
+
+import { MarkdownService } from '../markdown.service';
 
 @Component({
   selector: 'app-markdown-editor',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MarkdownEditorComponent implements OnInit {
 
-  constructor() { }
+  constructor(private mdService: MarkdownService) { }
 
   ngOnInit() {
+  }
+
+  onInputChange(e) {
+    this.mdService.markdownText.next(e.target.value);
   }
 
 }

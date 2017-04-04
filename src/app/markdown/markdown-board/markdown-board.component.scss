@@ -1,5 +1,13 @@
-:host {
+.board {
+  width: 100%;
   position: absolute;
   top: 50px;
+  height: calc(100% - 50px);
   display: flex;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+
+  .editor, .preview {
+    width: 50%;
+  }
 }
