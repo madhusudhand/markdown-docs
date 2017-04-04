@@ -1,4 +1,5 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import * as CodeMirror from 'codemirror/lib/codemirror';
 
 import { MarkdownService } from '../markdown.service';
 
@@ -11,7 +12,16 @@ export class MarkdownEditorComponent implements OnInit {
 
   constructor(private mdService: MarkdownService) { }
 
+  @ViewChild('markdown') markdown: ElementRef;
+
   ngOnInit() {
+    setTimeout(() => {
+      this.mdService.markdownText.next(this.markdown.nativeElement.value);
+    }, 0);
+
+    // const editor = CodeMirror.fromTextArea(document.getElementById('ta'), {
+    //   lineNumbers: true
+    // });
   }
 
   onInputChange(e) {
