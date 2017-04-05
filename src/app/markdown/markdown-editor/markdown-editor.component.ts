@@ -19,13 +19,14 @@ export class MarkdownEditorComponent implements OnInit {
       this.mdService.markdownText.next(this.markdown.nativeElement.value);
     }, 0);
 
-    // const editor = CodeMirror.fromTextArea(document.getElementById('ta'), {
-    //   lineNumbers: true
-    // });
-  }
+    const editor = CodeMirror.fromTextArea(this.markdown.nativeElement, {
+      mode: 'gfm',
+      theme: 'base16-light',
+      lineNumbers: true
+    });
 
-  onInputChange(e) {
-    this.mdService.markdownText.next(e.target.value);
+    editor.on('change', (cm) => {
+      this.mdService.markdownText.next(cm.getValue());
+    })
   }
-
 }
