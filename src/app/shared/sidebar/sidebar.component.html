@@ -1,0 +1,5 @@
+<div class="sidebar">
+  <p *ngIf="!onEdit"> {{name}} </p>
+  <input type="text" (keyup.enter)="setName()" [(ngModel)]="name">
+  <button (click)="setName()"> add </button>
+</div>
