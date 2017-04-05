@@ -5,17 +5,21 @@ import { MarkdownBoardComponent } from './markdown/markdown-board/markdown-board
 import { LandingComponent } from './home/landing/landing.component';
 import { HomeModule } from './home/home.module';
 import { MarkdownModule } from './markdown/markdown.module';
+import { OfflineModule } from './offline/offline.module';
+import { OfflinePreviewComponent } from './offline/offline-preview/offline-preview.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
-  { path: 'project', component: MarkdownBoardComponent }
+  { path: 'project', component: MarkdownBoardComponent },
+  { path: 'offline', component: OfflinePreviewComponent },
 ];
 
 @NgModule({
   imports: [
     RouterModule.forRoot(routes),
     HomeModule,
-    MarkdownModule
+    MarkdownModule,
+    OfflineModule
   ],
   exports: [RouterModule]
 })

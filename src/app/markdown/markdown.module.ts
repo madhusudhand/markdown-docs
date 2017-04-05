@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 import { MarkupPreviewComponent } from './markup-preview/markup-preview.component';
 import { SharedModule } from '../shared/shared.module';
@@ -12,7 +13,8 @@ import { HeaderComponent } from './header/header.component';
 @NgModule({
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    RouterModule
   ],
   exports: [
     MarkdownBoardComponent

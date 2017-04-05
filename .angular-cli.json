@@ -19,6 +19,7 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
+        "../node_modules/bootstrap/dist/css/bootstrap.css",
         "../node_modules/codemirror/lib/codemirror.css",
         "../node_modules/highlightjs/styles/darcula.css",
         "styles.scss",
