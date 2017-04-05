@@ -1,13 +1,19 @@
+:host {
+  width: calc(100% - 200px);
+  /* Since sidebar width is 200px */
+}
+
 .board {
   width: 100%;
-  position: absolute;
-  top: 50px;
-  height: calc(100% - 50px);
+  height: 100%;
   display: flex;
   justify-content: space-around;
   flex-wrap: nowrap;
-
-  .editor, .preview {
+  .editor,
+  .preview {
     width: 50%;
+  }
+  .preview {
+    overflow-y: auto;
   }
 }
