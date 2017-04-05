@@ -2,11 +2,17 @@
   <section class="header flex">Navigation Menu</section>
   <section class="nav-form">
 
-    <div class="menu-row" *ngFor="let item of menuItems; let i = index;" >
-      <textarea appAutogrow rows="1" (keydown)="onKeyDown($event, i)">{{item.title}}</textarea>
-    </div>
+    <ul class="menu-row">
+      <li *ngFor="let item of menuItems; let i = index;">
+        <textarea appAutogrow rows="1" (keydown)="onKeyDown($event, i)">{{item.title}}</textarea>
 
-    <!-- <div class="new-row">Add</div> -->
+        <ul class="submenu-row">
+          <li *ngFor="let submenu of item.submenu; let j = index;">
+            <textarea appAutogrow rows="1" (keydown)="onKeyDown($event, i, j)">{{submenu.title}}</textarea>
+          </li>
+        </ul>
+      </li>
+    </ul>
 
   </section>
 
