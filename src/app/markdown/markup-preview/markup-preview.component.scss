@@ -8,5 +8,6 @@
 }
 .preview {
   padding: 20px;
-  height: 100%;
+  height: calc(100% - 50px - 40px);
+  overflow: scroll;
 }

@@ -1,19 +1,11 @@
-:host {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 .editor-header {
   background: #d2d2d2;
   height: 50px;
-  // position: absolute;
-  top: 0;
   width: 100%;
 }
 
 .editor {
-  // margin-top: 60px; //because of editor header
-  height: 100%;
+  height: calc(100% - 50px);
   width: 100%;
   textarea {
     width: 100%;
