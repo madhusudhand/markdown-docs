@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-sidebar',
@@ -6,25 +6,37 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
-  onEdit: Boolean = false;
-  done: Boolean = false;
-  items:Array <any>;
-  constructor() {
-    this.items = [];
-   }
+  menuItems: any[];
+
+  constructor(private el: ElementRef) { }
 
   ngOnInit() {
+    this.menuItems = [
+      { title: 'Introduction' },
+      { title: 'Setup' },
+      { title: 'Installation' }
+    ];
   }
 
-  validateName(element) {
-    this.onEdit = true;
-    this.done = false;
+  onKeyDown(e, index) {
+    if (e.code === 'Enter') {
+      e.preventDefault();
+      this.addMenuItem(index + 1);
+      setTimeout(() => {
+        this.focusMenuItem(index + 1);
+      }, 0);
+    }
   }
 
-  setName(element) {
-    this.items.push(element.value);
-    this.onEdit = false;
-    element.value = null;
+  addMenuItem(index) {
+    this.menuItems.splice(index, 0, {
+       title: ''
+    });
+  }
+
+  focusMenuItem(index) {
+    const rows = this.el.nativeElement.querySelectorAll('.menu-row textarea');
+    rows[index].focus();
   }
 
 }

@@ -5,6 +5,7 @@ import { FormsModule } from "@angular/forms";
 import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { CodeDirective } from './code.directive';
+import { AutogrowDirective } from './autogrow.directive';
 
 @NgModule({
   imports: [
@@ -14,12 +15,14 @@ import { CodeDirective } from './code.directive';
   exports: [
     HeaderComponent,
     SidebarComponent,
-    CodeDirective
+    CodeDirective,
+    AutogrowDirective
   ],
   declarations: [
     HeaderComponent,
     SidebarComponent,
-    CodeDirective
+    CodeDirective,
+    AutogrowDirective
   ]
 })
 export class SharedModule { }
