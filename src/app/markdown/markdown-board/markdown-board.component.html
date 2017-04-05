@@ -4,12 +4,12 @@
   <div class="main-container">
     <div class="main-content">
       <div class="sidebar">
-        <app-sidebar></app-sidebar>
+        <app-sidebar [markdown]="markdown"></app-sidebar>
       </div>
 
       <div class="board">
         <section class="editor">
-          <app-markdown-editor></app-markdown-editor>
+          <app-markdown-editor [item]="mdService.currentMarkdownItem"></app-markdown-editor>
         </section>
 
         <section class="preview">

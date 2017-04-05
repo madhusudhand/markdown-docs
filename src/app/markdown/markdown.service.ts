@@ -7,11 +7,18 @@ import {Http, Response} from '@angular/http';
 export class MarkdownService {
   public markdownText: Subject<string>;
   public markdowns: Array<any>;
+
+  public currentMarkdownItem: any = {};
+
   constructor(private http: Http) {
     this.markdownText = new Subject();
+
+    this.markdownText.subscribe((data) => {
+      this.currentMarkdownItem.content = data;
+    });
   }
 
-  getMarkUp() {
+  getMarkDown() {
     return this.http.get(environment.api+'/markdown/project/1')
     .map((r: Response) => r.json());
   }

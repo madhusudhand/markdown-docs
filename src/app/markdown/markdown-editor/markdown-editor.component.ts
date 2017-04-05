@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
 import * as CodeMirror from 'codemirror/lib/codemirror';
 
 import { MarkdownService } from '../markdown.service';
@@ -10,23 +10,32 @@ import { MarkdownService } from '../markdown.service';
 })
 export class MarkdownEditorComponent implements OnInit {
 
-  constructor(private mdService: MarkdownService) { }
+  editor: any;
+  @Input() item: any = {};
+  @ViewChild('markdownArea') markdownArea: ElementRef;
 
-  @ViewChild('markdown') markdown: ElementRef;
+  constructor(private mdService: MarkdownService) {
+  }
 
   ngOnInit() {
     setTimeout(() => {
-      this.mdService.markdownText.next(this.markdown.nativeElement.value);
+      this.mdService.markdownText.next(this.item.content || '');
     }, 0);
 
-    const editor = CodeMirror.fromTextArea(this.markdown.nativeElement, {
+    this.editor = CodeMirror.fromTextArea(this.markdownArea.nativeElement, {
       mode: 'gfm',
       theme: 'base16-light',
       lineNumbers: true
     });
 
-    editor.on('change', (cm) => {
+    this.editor.on('change', (cm) => {
       this.mdService.markdownText.next(cm.getValue());
     })
+  }
+
+  ngOnChanges() {
+    if (this.editor) {
+      this.editor.setValue(this.item.content || '');
+    }
   }
 }

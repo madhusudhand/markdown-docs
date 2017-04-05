@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 import { MarkupPreviewComponent } from './markup-preview/markup-preview.component';
 import { SharedModule } from '../shared/shared.module';
@@ -14,7 +15,8 @@ import { HeaderComponent } from './header/header.component';
   imports: [
     CommonModule,
     SharedModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ],
   exports: [
     MarkdownBoardComponent

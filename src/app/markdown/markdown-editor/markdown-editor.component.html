@@ -2,7 +2,10 @@
   <h3> Markdown </h3>
 </div>
 <div class="editor">
-  <textarea #markdown>
+  <textarea #markdownArea [(ngModel)]="item.content"></textarea>
+</div>
+
+<!--
 # Markdown Editor
 
 Basic useful feature list:
@@ -33,5 +36,4 @@ This is a [link](https://github.com) to github.
 
  * [markdown-it](https://github.com/markdown-it/markdown-it) for Markdown parsing
 
-  </textarea>
-</div>
+   -->

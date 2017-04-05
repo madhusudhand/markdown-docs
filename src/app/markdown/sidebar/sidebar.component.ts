@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit } from '@angular/core';
 import { MarkdownService } from '../markdown.service';
 
 @Component({
@@ -7,18 +7,19 @@ import { MarkdownService } from '../markdown.service';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
-  menuItems: any[];
+  @Input() markdown: any;
 
   constructor(private el: ElementRef, private mdService: MarkdownService) { }
 
   ngOnInit() {
-    this.mdService.getMarkUp().subscribe((data) => {
-      this.menuItems = data;
-    });
+
+  }
+
+  onMenuSelection(item) {
+    this.mdService.currentMarkdownItem = item;
   }
 
   onKeyDown(e, mainIndex, subIndex?) {
-    // console.log(e);
     switch(e.code) {
       case 'Enter':
         e.preventDefault();
@@ -44,7 +45,7 @@ export class SidebarComponent implements OnInit {
 
   addMenuItem(mainIndex, subIndex) {
     if (typeof subIndex === 'undefined') {
-      this.menuItems.splice(mainIndex + 1, 0, {
+      this.markdown.data.splice(mainIndex + 1, 0, {
          title: '',
          content: '',
          submenu: []
@@ -54,7 +55,7 @@ export class SidebarComponent implements OnInit {
         this.focusMenuItem(mainIndex + 1);
       }, 0);
     } else {
-      this.menuItems[mainIndex].submenu.splice(subIndex + 1, 0, {
+      this.markdown.data[mainIndex].submenu.splice(subIndex + 1, 0, {
          title: '',
          content: '',
          submenu: []
@@ -67,10 +68,11 @@ export class SidebarComponent implements OnInit {
   }
 
   toggleMenuSubMenu(mainIndex, subIndex, makeItMainMenu) {
+    // tab
     if (typeof subIndex === 'undefined' && !makeItMainMenu) {
       if (mainIndex > 0) { // root menu can't be made child
-        const item = this.menuItems.splice(mainIndex, 1);
-        const prevItem = this.menuItems[mainIndex - 1];
+        const item = this.markdown.data.splice(mainIndex, 1);
+        const prevItem = this.markdown.data[mainIndex - 1];
         prevItem.submenu = prevItem.submenu || [];
         prevItem.submenu.push(item[0]);
 
@@ -79,14 +81,16 @@ export class SidebarComponent implements OnInit {
         }
         item[0].submenu = [];
       }
-    } else if (typeof subIndex !== 'undefined' && makeItMainMenu) {
-      const items = this.menuItems[mainIndex].submenu.splice(subIndex);
+    }
+    // shift + tab
+    else if (typeof subIndex !== 'undefined' && makeItMainMenu) {
+      const items = this.markdown.data[mainIndex].submenu.splice(subIndex);
       const newIndex = mainIndex + 1;
-      this.menuItems.splice(newIndex, 0, items[0]);
+      this.markdown.data.splice(newIndex, 0, items[0]);
 
       for (let i = 1; i<items.length; i++) {
-        this.menuItems[newIndex].submenu = this.menuItems[newIndex].submenu || [];
-        this.menuItems[newIndex].submenu.push(items[i]);
+        this.markdown.data[newIndex].submenu = this.markdown.data[newIndex].submenu || [];
+        this.markdown.data[newIndex].submenu.push(items[i]);
       }
 
     }
@@ -98,7 +102,6 @@ export class SidebarComponent implements OnInit {
       item = this.el.nativeElement.querySelectorAll('.menu-row > li')[mainIndex];
       if (typeof subIndex !== 'undefined') {
         item = item.querySelectorAll('.submenu-row > li')[subIndex];
-        console.log(item);
       }
 
       if (item) {

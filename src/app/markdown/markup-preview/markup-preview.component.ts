@@ -29,8 +29,6 @@ export class MarkupPreviewComponent implements OnInit {
   }
 
   private hilightCodeBlocks() {
-    console.log('message');
-
     setTimeout(() => {
       const blocks: any = this.preview.nativeElement.querySelectorAll('pre code');
       for (let block of blocks) {
