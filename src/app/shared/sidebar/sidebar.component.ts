@@ -6,14 +6,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
-  onEdit: Boolean = true;
+  onEdit: Boolean = false;
+  done: Boolean = false;
   constructor() { }
 
   ngOnInit() {
   }
 
-  setName() {
+  validateName(element) {
+    this.onEdit = true;
+  }
+
+  setName(element) {
+    this.done = true;
     this.onEdit = false;
+    element.value = null;
   }
 
 }

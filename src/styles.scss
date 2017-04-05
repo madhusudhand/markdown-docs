@@ -10,6 +10,13 @@ html, body {
   height: 100%;
 }
 
+/* global utility classes */
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 
 .theme {
   a{ color: #0645ad; text-decoration:none;}

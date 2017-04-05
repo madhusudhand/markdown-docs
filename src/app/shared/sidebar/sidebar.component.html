@@ -1,5 +1,6 @@
 <div class="sidebar">
-  <p *ngIf="!onEdit"> {{name}} </p>
-  <input type="text" (keyup.enter)="setName()" [(ngModel)]="name">
-  <button (click)="setName()"> add </button>
+  <h1> Navigation </h1>
+  <p *ngIf="done"> {{name}} </p>
+  <input #fileName type="text" (keyup)="validateName(fileName)" (keyup.enter)="setName(fileName)" [(ngModel)]="name">
+  <button (click)="setName(fileName)"> add </button>
 </div>

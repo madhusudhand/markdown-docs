@@ -1,4 +1,13 @@
+.editor-header {
+  background: #d2d2d2;
+  height: 50px;
+  position: fixed;
+  top: 56px;
+  width: 50%;
+}
+
 .editor {
+  margin-top: 60px; //because of editor header
   height: 100%;
   width: 100%;
   textarea {

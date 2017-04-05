@@ -1,6 +1,6 @@
 :host {
-  width: calc(100% - 200px);
-  /* Since sidebar width is 200px */
+  width: calc(100% - 200px); /* Since sidebar width is 200px */
+  padding: 5px;
 }
 
 .board {
@@ -12,6 +12,7 @@
   .editor,
   .preview {
     width: 50%;
+    border: 1px solid #d2d2d2;
   }
   .preview {
     overflow-y: auto;
