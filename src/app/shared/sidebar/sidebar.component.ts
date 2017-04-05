@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
+import {MarkdownService} from '../../markdown/markdown.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -8,14 +9,12 @@ import { Component, ElementRef, OnInit } from '@angular/core';
 export class SidebarComponent implements OnInit {
   menuItems: any[];
 
-  constructor(private el: ElementRef) { }
+  constructor(private el: ElementRef, private mdService: MarkdownService) { }
 
   ngOnInit() {
-    this.menuItems = [
-      { title: 'Introduction' },
-      { title: 'Setup' },
-      { title: 'Installation' }
-    ];
+    this.mdService.getMarkUp().subscribe((data) => {
+      this.menuItems = data;
+    });
   }
 
   onKeyDown(e, index) {

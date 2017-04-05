@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { MarkdownModule } from './markdown/markdown.module';
 import { SharedModule } from './shared/shared.module';
+import { MarkdownService } from './markdown/markdown.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { SharedModule } from './shared/shared.module';
     SharedModule,
     MarkdownModule
   ],
-  providers: [],
+  providers: [MarkdownService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

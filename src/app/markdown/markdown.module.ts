@@ -5,7 +5,6 @@ import { MarkupPreviewComponent } from './markup-preview/markup-preview.componen
 import { SharedModule } from '../shared/shared.module';
 import { MarkdownEditorComponent } from './markdown-editor/markdown-editor.component';
 import { MarkdownBoardComponent } from './markdown-board/markdown-board.component';
-import { MarkdownService } from './markdown.service';
 
 @NgModule({
   imports: [
@@ -20,8 +19,6 @@ import { MarkdownService } from './markdown.service';
     MarkdownEditorComponent,
     MarkdownBoardComponent
   ],
-  providers: [
-    MarkdownService
-  ]
+  providers: []
 })
 export class MarkdownModule { }
