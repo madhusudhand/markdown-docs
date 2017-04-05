@@ -1,6 +1,9 @@
 <div class="sidebar">
   <h1> Navigation </h1>
-  <p *ngIf="done"> {{name}} </p>
+  <ul *ngIf="items.length">
+    <li *ngFor="let item of items"> {{item}} </li>
+  </ul>
+  <!--<p *ngIf="done"> {{name}} </p>-->
   <input #fileName type="text" (keyup)="validateName(fileName)" (keyup.enter)="setName(fileName)" [(ngModel)]="name">
   <button (click)="setName(fileName)"> add </button>
 </div>

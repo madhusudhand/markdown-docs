@@ -1,0 +1,42 @@
+.theme {
+  a{ color: #0645ad;text-decoration: underline; background-color: transparent;}
+  a:visited{ color: #0b0080; }
+  a:hover{ color: #06e; outline: 0;}
+  a:active{ color:#faa700; outline: 0;}
+  a:focus{ outline: thin dotted; }
+  p{line-height: 1.7; margin: 10px 0 10px;font-size: 14.5px;}
+  img{max-width:100%;}
+  h1,h2,h4,h5,h6{color:#525252;line-height:1em;}
+  h4,h5,h6{ font-weight: bold; }
+  h1{ font-size:3em; font-weight: 200; margin: .67em 0;}
+  h2{ font-size:1.9em; font-weight: 400;border-bottom:1px solid silver; padding-bottom: 5px; }
+  h3{ font-size:1.5em; font-weight: 400;}
+  h4{ font-size:1em; }
+  h5{ font-size:0.85em; }
+  h6{ font-size:0.65em; }
+  blockquote{color:#666666;margin:0;padding-left: 3em;border-left: 0.5em #EEE solid;}
+  hr { display: block; height: 2px; border: 0; border-top: 1px solid #aaa;border-bottom: 1px solid #eee; margin: 1em 0; padding: 0; }
+  pre, code{
+    color: #000;
+    font-family:Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 0.94em; /* 0.94 = 0.88 + (1.00 - 0.88) / 2 */
+    border-radius:3px;
+    background-color: #F8F8F8;
+    border: 1px solid #CCC;
+  }
+  pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; padding: 5px;}
+  pre code { border: 0px !important; background: transparent !important; line-height: 1.3em; margin: 10px 0 20px;font-size:12px;}
+  code { padding: 0 3px 0 3px; }
+  sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+  sup { top: -0.5em; }
+  sub { bottom: -0.25em; }
+  ul, ol { margin: 0;padding: 0 0 5px;list-style: none;font-size: 16px;font-weight: 700;border-bottom: 1px solid #f0f2f1;
+    -webkit-font-smoothing: antialiased; color: #616161;}
+  li:before{color: #3E2723;content: "# ";margin-right: .25em;}
+  li p:last-child { margin:0 }
+  dd { margin: 0 0 0 2em; }
+  img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
+  table { border-collapse: collapse; border-spacing: 0; }
+  td, th { vertical-align: top; padding: 4px 10px; border: 1px solid #bbb; }
+  tr:nth-child(even) td, tr:nth-child(even) th { background: #eee; }
+}

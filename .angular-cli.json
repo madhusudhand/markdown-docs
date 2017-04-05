@@ -21,7 +21,9 @@
       "styles": [
         "../node_modules/codemirror/lib/codemirror.css",
         "../node_modules/highlightjs/styles/darcula.css",
-        "styles.scss"
+        "styles.scss",
+        "themes/custom.scss",
+        "themes/default.scss"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

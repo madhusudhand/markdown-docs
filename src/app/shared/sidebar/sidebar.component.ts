@@ -8,17 +8,21 @@ import { Component, OnInit } from '@angular/core';
 export class SidebarComponent implements OnInit {
   onEdit: Boolean = false;
   done: Boolean = false;
-  constructor() { }
+  items:Array <any>;
+  constructor() {
+    this.items = [];
+   }
 
   ngOnInit() {
   }
 
   validateName(element) {
     this.onEdit = true;
+    this.done = false;
   }
 
   setName(element) {
-    this.done = true;
+    this.items.push(element.value);
     this.onEdit = false;
     element.value = null;
   }
