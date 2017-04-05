@@ -1,13 +1,14 @@
 :host {
-  padding: 5px;
   overflow-y: auto;
 }
 .sidebar {
   height: 100%;
-  width: 200px;
+  width: 100%;
   border: 1px solid #d2d2d2;
+  border-right-width: 0;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
 
   .header {
     height: 50px;

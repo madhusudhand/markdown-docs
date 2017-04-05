@@ -1,9 +1,22 @@
-<div class="board">
-  <section class="editor">
-    <app-markdown-editor></app-markdown-editor>
-  </section>
+<div class="app">
+  <app-header></app-header>
 
-  <section class="preview">
-    <app-markup-preview></app-markup-preview>
-  </section>
+  <div class="main-container">
+    <div class="main-content">
+      <div class="sidebar">
+        <app-sidebar></app-sidebar>
+      </div>
+
+      <div class="board">
+        <section class="editor">
+          <app-markdown-editor></app-markdown-editor>
+        </section>
+
+        <section class="preview">
+          <app-markup-preview></app-markup-preview>
+        </section>
+      </div>
+
+    </div>
+  </div>
 </div>

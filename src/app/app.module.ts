@@ -6,7 +6,8 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { MarkdownModule } from './markdown/markdown.module';
 import { SharedModule } from './shared/shared.module';
-import { MarkdownService } from './markdown/markdown.service';
+import { OfflineModule } from './offline/offline.module';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -16,10 +17,12 @@ import { MarkdownService } from './markdown/markdown.service';
     BrowserModule,
     FormsModule,
     HttpModule,
+    AppRoutingModule,
     SharedModule,
-    MarkdownModule
+    MarkdownModule,
+    OfflineModule
   ],
-  providers: [MarkdownService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

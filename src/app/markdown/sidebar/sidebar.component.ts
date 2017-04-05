@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
-import {MarkdownService} from '../../markdown/markdown.service';
+import { MarkdownService } from '../markdown.service';
 
 @Component({
   selector: 'app-sidebar',

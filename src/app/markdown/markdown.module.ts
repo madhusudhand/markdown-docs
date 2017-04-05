@@ -5,6 +5,9 @@ import { MarkupPreviewComponent } from './markup-preview/markup-preview.componen
 import { SharedModule } from '../shared/shared.module';
 import { MarkdownEditorComponent } from './markdown-editor/markdown-editor.component';
 import { MarkdownBoardComponent } from './markdown-board/markdown-board.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { MarkdownService } from './markdown.service';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   imports: [
@@ -17,8 +20,10 @@ import { MarkdownBoardComponent } from './markdown-board/markdown-board.componen
   declarations: [
     MarkupPreviewComponent,
     MarkdownEditorComponent,
-    MarkdownBoardComponent
+    MarkdownBoardComponent,
+    SidebarComponent,
+    HeaderComponent
   ],
-  providers: []
+  providers: [MarkdownService]
 })
 export class MarkdownModule { }
