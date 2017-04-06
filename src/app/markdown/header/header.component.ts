@@ -12,6 +12,8 @@ export class HeaderComponent implements OnInit {
 
   @Input() markdown: any;
 
+  saved: boolean = false;
+
   constructor(private mdService: MarkdownService) { }
 
   ngOnInit() {
@@ -20,7 +22,8 @@ export class HeaderComponent implements OnInit {
 
   saveMarkdown() {
     this.mdService.saveMarkdown(this.mdService.currentProject.id, this.markdown).subscribe(() => {
-      alert('saved');
+      this.saved = true;
+      // setTimeout(() => this.saved = false, 2000);
     });
   }
 

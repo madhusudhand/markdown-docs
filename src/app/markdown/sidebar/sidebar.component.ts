@@ -76,10 +76,17 @@ export class SidebarComponent implements OnInit {
         prevItem.submenu = prevItem.submenu || [];
         prevItem.submenu.push(item[0]);
 
+        const currIndex = prevItem.submenu.length - 1;
+
         for (let sm of item[0].submenu) {
           prevItem.submenu.push(sm);
         }
         item[0].submenu = [];
+
+        setTimeout(() => {
+          this.focusMenuItem(mainIndex - 1, currIndex);
+        }, 0);
+
       }
     }
     // shift + tab
@@ -92,6 +99,10 @@ export class SidebarComponent implements OnInit {
         this.markdown.data[newIndex].submenu = this.markdown.data[newIndex].submenu || [];
         this.markdown.data[newIndex].submenu.push(items[i]);
       }
+
+      setTimeout(() => {
+        this.focusMenuItem(newIndex);
+      }, 0);
 
     }
   }

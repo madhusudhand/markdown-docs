@@ -17,7 +17,7 @@
     <div class="save">
       <button type="button" name="button" class="btn btn-default" (click)="saveMarkdown()">
         <i class="glyphicon glyphicon-floppy-disk"></i>
-        Save & Publish
+        {{saved? 'Saved !!' : 'Save & Publish'}}
       </button>
     </div>
 

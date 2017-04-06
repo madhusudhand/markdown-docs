@@ -26,7 +26,15 @@ ul {
     overflow-y: scroll;
   }
   .nav-hints {
-    display: none;
+    padding: 10px;
+    border-top: 1px solid #CCC;
+    .hint {
+      span {
+        background-color: #E0E0E0;
+        padding: 0 3px;
+        border-radius: 4px;
+      }
+    }
   }
 
   .menu-row, .submenu-row {
@@ -53,6 +61,19 @@ ul {
     //   margin-right: 5px;
     //   margin-top: 3px;
     // }
+  }
+
+  .menu-row {
+    textarea {
+      color: #01579B;
+    }
+  }
+
+  .submenu-row {
+    textarea {
+      font-size: 15px;
+      color: #757575;
+    }
   }
 }
 
