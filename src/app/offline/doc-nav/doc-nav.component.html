@@ -1,19 +1,10 @@
 <ul>
-  <li>Prologue
+  <li *ngFor="let menu of markup.data;">
+    <span (click)="onMenuSelection(menu)"> {{menu.title}} </span>
     <ul>
-      <li><a href="/#/releases">Release Notes</a></li>
-      <li><a href="/#/upgrade">Upgrade Guide</a></li>
-      <li><a href="/#/contributions">Contribution Guide</a></li>
-      <li><a href="/#/api">API Documentation</a></li>
-    </ul>
-  </li>
-
-  <li>Getting Started
-    <ul>
-      <li><a href="/#/installation">Installation</a></li>
-      <li><a href="/#/configuration">Configuration</a></li>
-      <li><a href="/#/structure">Directory Structure</a></li>
-      <li><a href="/#/lifecycle">Request Lifecycle</a></li>
+      <li *ngFor="let submenu of menu.submenu;">
+        <a (click)="onMenuSelection(submenu)"> {{submenu.title}}</a>
+      </li>
     </ul>
   </li>
 </ul>

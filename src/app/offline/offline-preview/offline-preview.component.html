@@ -6,10 +6,10 @@
   <div class="doc-container">
     <div class="container">
       <div class="doc-nav col-md-3">
-        <app-doc-nav></app-doc-nav>
+        <app-doc-nav [markup]="markup"></app-doc-nav>
       </div>
       <div class="doc-content col-md-9">
-        <app-doc-content [markup]="markup"></app-doc-content>
+        <app-doc-content [item]="mdService.currentMarkUpItem"></app-doc-content>
       </div>
     </div>
   </div>

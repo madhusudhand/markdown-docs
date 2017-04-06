@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MarkdownService } from '../../markdown/markdown.service';
+
 
 @Component({
   selector: 'app-offline-preview',
@@ -7,11 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OfflinePreviewComponent implements OnInit {
 
-  markup: any = '';
-  constructor() { }
+  markup: any =  {};
+  constructor(private mdService: MarkdownService) { }
 
   ngOnInit() {
-    this.markup = '<h1>Hello</h1><p>world</p><h1>Hello</h1><p>world</p><h1>Hello</h1><p>world</p><h1>Hello</h1><p>world</p><h1>Hello</h1><p>world</p><h1>Hello</h1><p>world</p><h1>Hello</h1><p>world</p><h1>Hello</h1><p>world</p><h1>Hello</h1><p>world</p>';
+    this.mdService.getMarkDown().subscribe((data) => {
+      this.markup.data = data;
+    });
   }
-
 }

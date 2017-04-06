@@ -13,6 +13,7 @@ export class MarkdownService {
   public projectChange: Subject<any>;
 
   public currentMarkdownItem: any = {};
+  public currentMarkUpItem: any = {}; //used for offline preview
 
   constructor(private http: Http) {
     this.markdownText = new Subject();
