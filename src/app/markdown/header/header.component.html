@@ -1,20 +1,26 @@
 <div class="header-container">
-   <div class="app-title"> Markdown Docs </div>
-   <div class="app-nav">
+  <div class="app-title"> Markdown Docs </div>
+  <div class="app-nav">
 
-     <div class="dropdown">
+    <div class="dropdown">
       <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-        Demo App
+        {{mdService.currentProject.name}}
         <span class="caret"></span>
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-        <li><a href="#">Demo App</a></li>
-        <li><a href="#">Markdown Docs</a></li>
+        <li *ngFor="let project of projects" ><a (click)="selectProject(project)">{{project.name}}</a></li>
         <li role="separator" class="divider"></li>
         <li><a href="#">Create a Project</a></li>
       </ul>
     </div>
 
-     <a routerLink="/docs">Offline Preview</a>
-   </div>
+    <div class="save">
+      <button type="button" name="button" class="btn btn-default" (click)="saveMarkdown()">
+        <i class="glyphicon glyphicon-floppy-disk"></i>
+        Save
+      </button>
+    </div>
+
+    <a routerLink="/docs">Offline Preview</a>
+  </div>
 </div>

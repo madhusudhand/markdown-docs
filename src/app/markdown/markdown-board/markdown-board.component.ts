@@ -9,11 +9,21 @@ import { MarkdownService } from '../markdown.service';
 })
 export class MarkdownBoardComponent implements OnInit {
   markdown: any = {};
+  projects: any = [];
   constructor(private mdService: MarkdownService) { }
 
   ngOnInit() {
-    this.mdService.getMarkDown().subscribe((data) => {
-      this.markdown.data = data;
+
+    this.mdService.getProjects().subscribe(data => {
+      this.projects = data;
+      this.mdService.projectChange.next(this.projects[0]);
+    });
+
+
+    this.mdService.projectChange.subscribe(project => {
+      this.mdService.getMarkDown(project.id).subscribe((data) => {
+        this.markdown.data = data.markdown;
+      });
     });
   }
 

@@ -8,18 +8,36 @@ export class MarkdownService {
   public markdownText: Subject<string>;
   public markdowns: Array<any>;
 
+  public currentProject: any = {};
+
+  public projectChange: Subject<any>;
+
   public currentMarkdownItem: any = {};
 
   constructor(private http: Http) {
     this.markdownText = new Subject();
+    this.projectChange = new Subject();
 
     this.markdownText.subscribe((data) => {
       this.currentMarkdownItem.content = data;
     });
+
+    this.projectChange.subscribe(project => {
+      this.currentProject = project;
+    });
   }
 
-  getMarkDown() {
-    return this.http.get(environment.api+'/markdown/project/1')
+  getMarkDown(projectId) {
+    return this.http.get('/api/markdown/project/'+projectId)
+    .map((r: Response) => r.json());
+  }
+
+  saveMarkdown(projectId, markdownObj) {
+    return this.http.post('/api/markdown/project/'+projectId, {markdown: markdownObj});
+  }
+
+  getProjects() {
+    return this.http.get('/api/projects')
     .map((r: Response) => r.json());
   }
 }
