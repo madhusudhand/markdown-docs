@@ -27,8 +27,16 @@
   display: flex;
   align-items: center;
 
+  /* buttons in nav */
+  .btn {
+    padding: 8px 24px;
+  }
+
   .dropdown {
     margin-right: 20px;
+    li a{
+      cursor: pointer;
+    }
   }
 
   .save {
@@ -43,5 +51,6 @@
 
   > a {
     color: #FFF;
+    cursor: pointer;
   }
 }

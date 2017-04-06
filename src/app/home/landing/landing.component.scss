@@ -4,8 +4,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  h1 {
+    color:#FF5722;
+  }
+  .btn {
+    margin-top: 2em;
+  }
 
   a {
     font-size: 28px;
+    color: #fff;
+    cursor:  pointer;
   }
 }
