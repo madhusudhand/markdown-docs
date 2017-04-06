@@ -20,6 +20,8 @@ export class OfflinePreviewComponent implements OnInit {
       console.log(params);
       this.mdService.getMarkDown(params.id).subscribe((data) => {
         this.markup.data = data.markdown;
+
+        this.mdService.currentMarkUpItem = this.markup.data[0];
       });
     });
   }

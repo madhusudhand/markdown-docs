@@ -1,6 +1,24 @@
 ul {
   padding-left: 15px;
+  font-size: 15px;
   li {
+    padding-bottom: 3px;
+    padding-top: 3px;
     cursor:pointer;
+
+    .active {
+      color: #EF5350;
+      font-size: 18px;
+      display: block;
+      margin-bottom: 5px;
+    }
   }
+}
+
+.menu > li {
+  list-style: none;
+}
+
+.submenu > li {
+  margin-left: 20px;
 }
