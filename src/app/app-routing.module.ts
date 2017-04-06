@@ -11,7 +11,7 @@ import { OfflinePreviewComponent } from './offline/offline-preview/offline-previ
 const routes: Routes = [
   { path: '', component: LandingComponent },
   { path: 'project', component: MarkdownBoardComponent },
-  { path: 'docs', component: OfflinePreviewComponent },
+  { path: 'docs/project/:id', component: OfflinePreviewComponent },
 ];
 
 @NgModule({

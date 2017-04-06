@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { MarkdownService } from '../../markdown/markdown.service';
 
 
@@ -9,12 +10,17 @@ import { MarkdownService } from '../../markdown/markdown.service';
 })
 export class OfflinePreviewComponent implements OnInit {
 
-  markup: any =  {};
-  constructor(private mdService: MarkdownService) { }
+  markup: any =  {
+    data: []
+  };
+  constructor(private mdService: MarkdownService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.mdService.getMarkDown().subscribe((data) => {
-      this.markup.data = data;
+    this.route.params.subscribe(params => {
+      console.log(params);
+      this.mdService.getMarkDown(params.id).subscribe((data) => {
+        this.markup.data = data.markdown;
+      });
     });
   }
 }
