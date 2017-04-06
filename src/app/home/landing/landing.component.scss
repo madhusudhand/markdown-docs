@@ -5,11 +5,26 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin-top: -100px;
+
+  font-family: "Source Sans Pro", 'Roboto', sans-serif;
+
   h1 {
-    color:#FF5722;
+    color:#FF8A65;
+    font-size: 64px;
+    text-align: center;
+    font-weight: 200;
+  }
+  h4 {
+    text-align: center;
+    color: #BDBDBD;
+    font-size: 28px;
+    line-height: 40px;
+    font-weight: 200;
   }
   .btn {
     margin-top: 2em;
+    font-size: 28px;
   }
 
   a {
