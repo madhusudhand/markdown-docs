@@ -4,11 +4,11 @@
 
     <ul class="menu-row">
       <li *ngFor="let menu of markdown.data; let i = index;">
-        <textarea appAutogrow rows="1" (focus)="onMenuSelection(menu)" (keydown)="onKeyDown($event, i)" [(ngModel)]="menu.title"></textarea>
+        <textarea spellcheck="false" appAutogrow rows="1" (focus)="onMenuSelection(menu)" (keydown)="onKeyDown($event, i)" [(ngModel)]="menu.title"></textarea>
 
         <ul class="submenu-row">
           <li *ngFor="let submenu of menu.submenu; let j = index;">
-            <textarea appAutogrow rows="1" (focus)="onMenuSelection(submenu)" (keydown)="onKeyDown($event, i, j)" [(ngModel)]="submenu.title"></textarea>
+            <textarea spellcheck="false" appAutogrow rows="1" (focus)="onMenuSelection(submenu)" (keydown)="onKeyDown($event, i, j)" [(ngModel)]="submenu.title"></textarea>
           </li>
         </ul>
       </li>
