@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import {MarkdownService} from '../../markdown/markdown.service';
 
 @Component({
   selector: 'app-doc-nav',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./doc-nav.component.scss']
 })
 export class DocNavComponent implements OnInit {
-
-  constructor() { }
+  @Input() markup: any;
+  constructor(private mdService: MarkdownService) { }
 
   ngOnInit() {
   }
 
+  onMenuSelection(item) {
+    this.mdService.currentMarkUpItem = item;
+  }
 }

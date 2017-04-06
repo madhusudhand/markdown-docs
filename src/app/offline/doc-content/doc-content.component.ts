@@ -1,4 +1,5 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import * as MarkdownIt from 'markdown-it';
 
 @Component({
   selector: 'app-doc-content',
@@ -6,14 +7,18 @@ import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./doc-content.component.scss']
 })
 export class DocContentComponent implements OnInit {
+  markup: any;
+  @Input() item: any = {};
 
-  @ViewChild('preview') preview: ElementRef;
-  @Input() markup: string = '';
+  private md = new MarkdownIt();
 
   constructor() { }
 
   ngOnInit() {
-    this.markup = this.markup || '';
+    this.markup = this.md.render(this.item.content || '');
   }
 
+  ngOnChanges() {
+    this.markup = this.md.render(this.item.content || '');
+  }
 }
