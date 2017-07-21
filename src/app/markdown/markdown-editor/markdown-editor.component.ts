@@ -25,7 +25,9 @@ export class MarkdownEditorComponent implements OnInit {
     this.editor = CodeMirror.fromTextArea(this.markdownArea.nativeElement, {
       mode: 'gfm',
       theme: 'base16-light',
-      lineNumbers: true
+      lineNumbers: true,
+      tabSize: 2,
+      showCursorWhenSelecting: true,
     });
 
     this.editor.on('change', (cm) => {

@@ -13,7 +13,7 @@ export class OfflinePreviewComponent implements OnInit {
   markup: any =  {
     data: []
   };
-  constructor(private mdService: MarkdownService, private route: ActivatedRoute) { }
+  constructor(public mdService: MarkdownService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {

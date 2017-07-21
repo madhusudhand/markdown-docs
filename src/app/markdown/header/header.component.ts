@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
 
   saved: boolean = false;
 
-  constructor(private mdService: MarkdownService) { }
+  constructor(public mdService: MarkdownService) { }
 
   ngOnInit() {
 

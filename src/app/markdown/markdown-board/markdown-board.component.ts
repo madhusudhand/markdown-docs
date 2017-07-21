@@ -10,7 +10,7 @@ import { MarkdownService } from '../markdown.service';
 export class MarkdownBoardComponent implements OnInit {
   markdown: any = {};
   projects: any = [];
-  constructor(private mdService: MarkdownService) { }
+  constructor(public mdService: MarkdownService) { }
 
   ngOnInit() {
 

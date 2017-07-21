@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import {environment} from '../../environments/environment';
-import {Http, Response} from '@angular/http';
+import {Http, Response, Headers, RequestOptions} from '@angular/http';
 
 @Injectable()
 export class MarkdownService {
@@ -15,6 +15,11 @@ export class MarkdownService {
   public currentMarkdownItem: any = {};
   public currentMarkUpItem: any = {}; //used for offline preview
 
+  private headers: any;
+
+
+  private urlPrefix = 'http://localhost:3000'; // 'https://mdd-api.herokuapp.com';
+
   constructor(private http: Http) {
     this.markdownText = new Subject();
     this.projectChange = new Subject();
@@ -26,19 +31,23 @@ export class MarkdownService {
     this.projectChange.subscribe(project => {
       this.currentProject = project;
     });
+
+    this.headers = new Headers();
+    this.headers.append('Content-Type', 'application/x-www-form-urlencoded');
   }
 
   getMarkDown(projectId) {
-    return this.http.get('/api/markdown/project/'+projectId)
+    return this.http.get(this.urlPrefix+'/api/markdown/project/'+projectId)
     .map((r: Response) => r.json());
   }
 
   saveMarkdown(projectId, markdownObj) {
-    return this.http.post('/api/markdown/project/'+projectId, {markdown: markdownObj});
+    let options = new RequestOptions({ headers: this.headers });
+    return this.http.post(this.urlPrefix+'/api/markdown/project/'+projectId, {markdown: markdownObj}, options);
   }
 
   getProjects() {
-    return this.http.get('/api/projects')
+    return this.http.get(this.urlPrefix+'/api/projects')
     .map((r: Response) => r.json());
   }
 }
